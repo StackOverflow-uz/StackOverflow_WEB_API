@@ -9,4 +9,5 @@ namespace DataAccessLayer.Entities;
 public class Tag : BaseEntity
 {
     public string Name { get; set; } = string.Empty;
+    public QuestionTag QuestionTag { get; set; }
 }
