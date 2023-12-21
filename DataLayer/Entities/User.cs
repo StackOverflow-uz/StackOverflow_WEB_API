@@ -10,7 +10,7 @@ namespace DataAccessLayer.Entities;
 public class User
 {
     [Key, Required]
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = new Guid();
     public string UserName { get; set; } = string.Empty;
     public string Location { get; set; } = string.Empty;
     public string PasswordHash { get; set; } = string.Empty;

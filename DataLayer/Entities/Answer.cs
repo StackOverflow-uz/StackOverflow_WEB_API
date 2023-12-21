@@ -9,7 +9,6 @@ namespace DataAccessLayer.Entities;
 
 public class Answer : BaseEntity
 {
-    [Key, Required]
     public Guid UserId { get; set; }
     public string Body { get; set; } = string.Empty;
     public int AnswersCount { get; set; }
