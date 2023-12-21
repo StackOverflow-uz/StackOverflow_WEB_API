@@ -1,4 +1,4 @@
-﻿namespace DTOs.Answer;
+﻿namespace DTOs.QuestionD;
 
 public class AddQuestionDto
 {

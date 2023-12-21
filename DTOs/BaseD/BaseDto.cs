@@ -1,4 +1,4 @@
-﻿namespace DTOs.Base;
+﻿namespace DTOs.BaseD;
 
 public class BaseDto
 {

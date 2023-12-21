@@ -1,4 +1,4 @@
-﻿namespace DTOs.QuestionTag;
+﻿namespace DTOs.QuestionTagD;
 
 public class UpdateQuestionTagDto
 {

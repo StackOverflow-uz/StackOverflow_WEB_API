@@ -1,4 +1,4 @@
-﻿namespace DTOs.Tag;
+﻿namespace DTOs.TagD;
 
 public class UpdateTagDto
 {

@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTOs.QuestionTag;
+namespace DTOs.TagD;
 
-public class AddQuestionTagDto
+public class AddTagDto
 {
 }
