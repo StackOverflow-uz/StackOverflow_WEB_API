@@ -1,14 +1,6 @@
-﻿using DataAccessLayer.Entities;
-using DataAccessLayer.Interfaces;
-using DTOs.AnswerD;
+﻿using DTOs.AnswerD;
 using LogicLayer.Extended;
 using LogicLayer.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace LogicLayer.Services;
 
 public class AnswerService : IAnswerService
