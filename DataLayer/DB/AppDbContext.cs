@@ -28,7 +28,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         .WithOne(e => e.Question)
         .HasForeignKey(e => e.QuestionId)
         .IsRequired(false);
-        
+            
         modelBuilder.Entity<Tag>()
         .HasMany(e => e.QuestionTags)
         .WithOne(e => e.Tag)
@@ -84,7 +84,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         .IsRequired(false);
 
         modelBuilder.Entity<Question>()
-        .HasMany(e => e.QuestionTags)
+        .HasMany(e => e.QuestionTags)       
         .WithOne(e => e.Question)
         .HasForeignKey(e => e.QuestionId)
         .IsRequired(false);
