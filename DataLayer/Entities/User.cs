@@ -8,8 +8,8 @@ public class User : IdentityUser
     public string AvatarUrl { get; set; } = string.Empty;
     public string About { get; set; } = string.Empty;
     public int Reputation { get; set; }
-    public virtual ICollection<Saved> Saves { get; set;} = new List<Saved>();
-    public virtual ICollection<Comment> Comments { get; } = new List<Comment>();
-    public virtual ICollection<Answer> Answers { get; } = new List<Answer>();
-    public virtual ICollection<Question> Questions { get; } = new List<Question>();
+    public virtual List<Saved> Saves { get; set;} = new ();
+    public virtual List<Comment> Comments { get; } = new ();
+    public virtual List<Answer> Answers { get; } = new ();
+    public virtual List<Question> Questions { get; } = new ();
 }

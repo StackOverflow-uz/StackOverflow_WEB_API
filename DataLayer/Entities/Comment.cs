@@ -11,5 +11,5 @@ public class Comment : BaseEntity
     public virtual User UserComment { get; set; } = new();
     public virtual Answer Answer { get; set; } = new();
     public virtual Question Question { get; set; } = new();
-    public virtual ICollection<Comment> RepliComments { get; set; } = new List<Comment>();
+    public virtual List<Comment> RepliComments { get; set; } = new ();
 }

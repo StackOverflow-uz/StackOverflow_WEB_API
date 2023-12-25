@@ -1,16 +1,14 @@
 ﻿using DataAccessLayer.Entities;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessLayer.DB;
 
-public class AppDbContext : IdentityDbContext<User>
+public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-    {
-    }
+    {    }
     public DbSet<Answer> Answers { get; set; }
-    public new DbSet<User> Users { get; set; }
+    public DbSet<User> Users { get; set; }
     public DbSet<Question> Question { get; set; }
     public DbSet<Comment> Comments { get; set; }
     public DbSet<Tag> Tags { get; set; }
@@ -19,14 +17,13 @@ public class AppDbContext : IdentityDbContext<User>
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder);
         //Questionstags
         modelBuilder.Entity<Question>()
         .HasMany(e => e.QuestionTags)
         .WithOne(e => e.Question)
         .HasForeignKey(e => e.QuestionId)
         .IsRequired(false);
-        
+
         modelBuilder.Entity<Tag>()
         .HasMany(e => e.QuestionTags)
         .WithOne(e => e.Tag)
@@ -40,20 +37,17 @@ public class AppDbContext : IdentityDbContext<User>
         .HasForeignKey(e => e.UserId)
         .IsRequired(false);
 
-
         modelBuilder.Entity<User>()
         .HasMany(e => e.Saves)
         .WithOne(e => e.User)
         .HasForeignKey(e => e.UserId)
         .IsRequired(false).OnDelete(DeleteBehavior.Restrict);
 
-
         modelBuilder.Entity<User>()
         .HasMany(e => e.Comments)
         .WithOne(e => e.UserComment)
         .HasForeignKey(e => e.UserId)
         .IsRequired(false);
-
 
         modelBuilder.Entity<User>()
         .HasMany(e => e.Questions)
@@ -100,5 +94,10 @@ public class AppDbContext : IdentityDbContext<User>
         .HasForeignKey(e => e.RepliedCommentId)
         .IsRequired(false);
         */
+        base.OnModelCreating(modelBuilder);
     }
 }
+
+
+
+
