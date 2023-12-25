@@ -1,5 +1,9 @@
-﻿namespace DTOs.TagD;
+﻿using DTOs.BaseD;
 
-public class UpdateTagDto
+namespace DTOs.TagD;
+
+public class UpdateTagDto : BaseDto
 {
+    public int Id { get; set; }
+    public string Name { get; set; } = string.Empty;
 }

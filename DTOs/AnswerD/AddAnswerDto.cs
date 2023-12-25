@@ -1,7 +1,8 @@
-﻿namespace DTOs.AnswerD;
+﻿using DTOs.BaseD;
 
-public class AddAnswerDto
+namespace DTOs.AnswerD;
+
+public class AddAnswerDto : BaseDto
 {
-    public Guid UserId { get; set; }
     public string Body { get; set; } = string.Empty;
 }

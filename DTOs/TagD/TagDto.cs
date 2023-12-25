@@ -1,5 +1,8 @@
-﻿namespace DTOs.TagD;
+﻿using DTOs.BaseD;
 
-public class TagDto
+namespace DTOs.TagD;
+
+public class TagDto : BaseDto
 {
+    public string Name { get; set; } = string.Empty;
 }
