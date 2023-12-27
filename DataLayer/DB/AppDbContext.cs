@@ -19,11 +19,11 @@ public class AppDbContext : DbContext
     {
         //Questionstags
         modelBuilder.Entity<Question>()
-        .HasMany(e => e.QuestionTags)
+        .HasMany(e => e.QuestionTags)//
         .WithOne(e => e.Question)
         .HasForeignKey(e => e.QuestionId)
         .IsRequired(false);
-
+            
         modelBuilder.Entity<Tag>()
         .HasMany(e => e.QuestionTags)
         .WithOne(e => e.Tag)
@@ -40,7 +40,7 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<User>()
         .HasMany(e => e.Saves)
         .WithOne(e => e.User)
-        .HasForeignKey(e => e.UserId)
+        .HasForeignKey(e => e.UserId)//
         .IsRequired(false).OnDelete(DeleteBehavior.Restrict);
 
         modelBuilder.Entity<User>()
@@ -57,7 +57,7 @@ public class AppDbContext : DbContext
 
         //Answer
         modelBuilder.Entity<Answer>()
-        .HasMany(e => e.Saveds)
+        .HasMany(e => e.Saveds)//
         .WithOne(e => e.Answer)
         .HasForeignKey(e => e.AnswerId)
         .IsRequired(false);
@@ -71,13 +71,7 @@ public class AppDbContext : DbContext
         //Question
         modelBuilder.Entity<Question>()
         .HasMany(e => e.Saves)
-        .WithOne(e => e.Question)
-        .HasForeignKey(e => e.QuestionId)
-        .IsRequired(false);
-
-        modelBuilder.Entity<Question>()
-        .HasMany(e => e.QuestionTags)
-        .WithOne(e => e.Question)
+        .WithOne(e => e.Question)//
         .HasForeignKey(e => e.QuestionId)
         .IsRequired(false);
 

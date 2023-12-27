@@ -27,8 +27,6 @@ public class Repository<TEntity>(AppDbContext dbContext) : IRepository<TEntity> 
 
     public async Task<IEnumerable<TEntity>> GetAllAsync()
     {
-
-
         return await _dbContext.Set<TEntity>().ToListAsync();
     }
 
