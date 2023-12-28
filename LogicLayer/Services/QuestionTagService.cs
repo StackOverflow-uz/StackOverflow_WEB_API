@@ -1,16 +1,11 @@
 ﻿using DTOs.QuestionTagD;
 using LogicLayer.Extended;
 using LogicLayer.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogicLayer.Services;
 public class QuestionTagService : IQuestionTagService
 {
-    public Task Add(AddQuestionTagDto addCategoryDto)
+    public Task Add(AddQuestionTagDto addQuestionDto)
     {
         throw new NotImplementedException();
     }
@@ -35,7 +30,7 @@ public class QuestionTagService : IQuestionTagService
         throw new NotImplementedException();
     }
 
-    public Task Update(UpdateQuestionTagDto updateCategoryDto)
+    public Task Update(UpdateQuestionTagDto updateQuestionDto)
     {
         throw new NotImplementedException();
     }

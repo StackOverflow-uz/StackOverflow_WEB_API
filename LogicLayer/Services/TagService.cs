@@ -6,7 +6,7 @@ namespace LogicLayer.Services;
 
 public class TagService : ITagService
 {
-    public Task Add(AddTagDto addCategoryDto)
+    public Task Add(AddTagDto addTagDto)
     {
         throw new NotImplementedException();
     }
@@ -31,7 +31,7 @@ public class TagService : ITagService
         throw new NotImplementedException();
     }
 
-    public Task Update(UpdateTagDto updateCategoryDto)
+    public Task Update(UpdateTagDto updateTagDto)
     {
         throw new NotImplementedException();
     }

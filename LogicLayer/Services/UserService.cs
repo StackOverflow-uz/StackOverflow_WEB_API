@@ -6,7 +6,7 @@ namespace LogicLayer.Services;
 
 public class UserService : IUserService
 {
-    public Task Add(AddUserDto addCategoryDto)
+    public Task Add(AddUserDto addUserDto)
     {
         throw new NotImplementedException();
     }
@@ -31,7 +31,7 @@ public class UserService : IUserService
         throw new NotImplementedException();
     }
 
-    public Task Update(UpdateUserDto updateCategoryDto)
+    public Task Update(UpdateUserDto updateUserDto)
     {
         throw new NotImplementedException();
     }

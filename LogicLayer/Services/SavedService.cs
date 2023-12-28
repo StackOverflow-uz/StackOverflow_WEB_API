@@ -6,7 +6,7 @@ namespace LogicLayer.Services;
 
 public class SavedService : ISavedService
 {
-    public Task Add(AddSavedDto addCategoryDto)
+    public Task Add(AddSavedDto addSavedDto)
     {
         throw new NotImplementedException();
     }
@@ -31,7 +31,7 @@ public class SavedService : ISavedService
         throw new NotImplementedException();
     }
 
-    public Task Update(UpdateSavedDto updateCategoryDto)
+    public Task Update(UpdateSavedDto updateSavedDto)
     {
         throw new NotImplementedException();
     }

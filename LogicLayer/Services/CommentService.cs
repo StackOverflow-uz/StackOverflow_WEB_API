@@ -1,17 +1,12 @@
 ﻿using DTOs.CommentD;
 using LogicLayer.Extended;
 using LogicLayer.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogicLayer.Services;
 
 public class CommentService : ICommentService
 {
-    public Task Add(AddCommentDto addCategoryDto)
+    public Task Add(AddCommentDto addCommentDto)
     {
         throw new NotImplementedException();
     }
@@ -36,7 +31,7 @@ public class CommentService : ICommentService
         throw new NotImplementedException();
     }
 
-    public Task Update(UpdateCommentDto updateCategoryDto)
+    public Task Update(UpdateCommentDto updateCommentDto)
     {
         throw new NotImplementedException();
     }
