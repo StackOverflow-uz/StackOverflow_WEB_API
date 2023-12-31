@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Interfaces;
 
-public interface IQuestionTaginterface
+public interface IQuestionTagInterface
 {
     Task<IEnumerable<QuestionTag>> GetAllAsync();
 

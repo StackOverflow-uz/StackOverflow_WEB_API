@@ -2,7 +2,7 @@
 
 namespace DTOs.TagD;
 
-public class UpdateTagDto : BaseDto
+public class UpdateTag : BaseDto
 {
     public string Name { get; set; } = string.Empty;
 }

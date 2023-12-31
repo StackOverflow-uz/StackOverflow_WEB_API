@@ -36,11 +36,12 @@ public class AutoMapperProfile : Profile
 
         CreateMap<Saved,SavedDto>();
         CreateMap<AddSavedDto, Saved>();
+        CreateMap<UpdateSavedDto, Saved>();
 
 
         CreateMap<Tag, TagDto>();
         CreateMap<AddTagDto, Tag>();
-        CreateMap<UpdateTagDto, Tag>();
+        CreateMap<UpdateTag, Tag>();
 
         CreateMap<User, UserDto>();
         CreateMap<AddUserDto, User>();

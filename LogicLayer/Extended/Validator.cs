@@ -28,4 +28,9 @@ public static class Validator
     => answer != null && !string.IsNullOrEmpty(answer.Name);
     public static bool IsExist(this Tag answer, IEnumerable<Tag> answers)
         => answers.Any(c => c.Name == answer.Name && c.Id != answer.Id);
+
+    public static bool IsValid(this Question answer)
+    => answer != null && !string.IsNullOrEmpty(answer.Body);
+    public static bool IsExist(this Question answer, IEnumerable<Question> answers)
+        => answers.Any(c => c.Body == answer.Body && c.Title == answer.Title && c.Id != answer.Id);
 }

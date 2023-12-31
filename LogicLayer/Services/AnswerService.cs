@@ -23,7 +23,7 @@ public class AnswerService(IUnitOfWorkInterface unitOfWork,
         var answer = _mapper.Map<Answer>(addAnswerDto);
         if (!answer.IsValid())
         {
-            throw new CustomException("Invalid Category");
+            throw new CustomException("Invalid Answer");
         }
 
         var answers = await _unitOfWork.AnswerInterface.GetAllAsync();
@@ -35,29 +35,64 @@ public class AnswerService(IUnitOfWorkInterface unitOfWork,
 		await _unitOfWork.AnswerInterface.AddAsync(answer);
 		await _unitOfWork.SaveAsync();
     }
+    public async Task Delete(int id)
+    {
+        var answer = await _unitOfWork.AnswerInterface.GetByIdAsync(id);
+        if (answer == null)
+        {
+            throw new ArgumentNullException("Bunday Answer mavjud emas");
+        }
+        await _unitOfWork.AnswerInterface.DeleteAsync(answer);
+        await _unitOfWork.SaveAsync();
+    }
 
-	public Task Delete(int id)
-	{
-		throw new NotImplementedException();
-	}
+    public async Task<List<AnswerDto>> GetAll()
+    {
+        var answers = await _unitOfWork.AnswerInterface.GetAllAsync();
 
-	public Task<List<AnswerDto>> GetAll()
-	{
-		throw new NotImplementedException();
-	}
+        return answers.Select(c => _mapper.Map<AnswerDto>(c)).ToList();
+    }
 
-	public Task<PagedList<AnswerDto>> GetAllPaged(int pageSize, int pageNumber)
-	{
-		throw new NotImplementedException();
-	}
+    public async Task<PagedList<AnswerDto>> GetAllPaged(int pageSize, int pageNumber)
+    {
+        var list = await _unitOfWork.AnswerInterface.GetAllAsync();
+        var dtos = list.Select(c => _mapper.Map<AnswerDto>(c))
+                                    .ToList();
 
-	public Task<AnswerDto> GetById(int id)
-	{
-		throw new NotImplementedException();
-	}
+        PagedList<AnswerDto> pagedList = new(dtos,
+                                               dtos.Count(),
+                                               pageNumber,
+                                               pageSize);
+        return pagedList.ToPagedList(dtos, pageSize, pageNumber);
+    }
 
-	public Task Update(UpdateAnswerDto updateAnswerDto)
-	{
-		throw new NotImplementedException();
-	}
+    public async Task<AnswerDto> GetById(int id)
+        => _mapper.Map<AnswerDto>(await _unitOfWork.AnswerInterface.GetByIdAsync(id));
+
+    public async Task Update(UpdateAnswerDto updateAnswerDto)
+    {
+        if (updateAnswerDto == null)
+        {
+            throw new ArgumentNullException("AnswerDto is null here");
+        }
+
+        var answers = await _unitOfWork.AnswerInterface.GetAllAsync();
+        var answer = answers.FirstOrDefault(c => c.Id == updateAnswerDto.Id);
+
+        if (answer == null)
+        {
+            throw new ArgumentNullException("Answer is null here");
+        }
+        var updateAnswer = _mapper.Map<Answer>(updateAnswerDto);
+        if (!updateAnswer.IsValid())
+        {
+            throw new StackException("Answer is invalid ");
+        }
+        if (updateAnswer.IsExist(answers))
+        {
+            throw new StackException("Answer is already exist ");
+        }
+        await _unitOfWork.AnswerInterface.UpdateAsync(updateAnswer);
+        await _unitOfWork.SaveAsync();
+    }
 }

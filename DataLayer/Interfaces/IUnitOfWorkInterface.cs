@@ -6,7 +6,7 @@ public interface IUnitOfWorkInterface : IDisposable
     IAnswerInterface AnswerInterface { get; }
     ICommentInterface CommentInterface { get; }
     IQuestionInterface QuestionInterface { get; }
-    IQuestionTaginterface QuestionTaginterface { get; }
+    IQuestionTagInterface QuestionTagInterface { get; }
     ITagInterface TagInterface { get; }
     ISavedInterface SavedInterface { get; }
     Task SaveAsync();

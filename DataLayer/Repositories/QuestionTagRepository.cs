@@ -2,16 +2,10 @@
 using DataAccessLayer.Entities;
 using DataAccessLayer.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace DataAccessLayer.Repositories;
 
-public class QuestionTagRepository(AppDbContext dbContext) : IQuestionTaginterface
+public class QuestionTagRepository(AppDbContext dbContext) : IQuestionTagInterface
 {
     protected readonly AppDbContext _dbContext = dbContext;
     public async Task AddAsync(QuestionTag questiontag)

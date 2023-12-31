@@ -2,7 +2,7 @@
 
 public class UpdateUserDto
 {
-    public Guid Id { get; set; } = new Guid();
+    public Guid Id { get; set; }
     public string UserName { get; set; } = string.Empty;
     public string Location { get; set; } = string.Empty;
     public string PasswordHash { get; set; } = string.Empty;

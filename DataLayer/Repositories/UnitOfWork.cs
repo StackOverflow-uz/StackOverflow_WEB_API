@@ -1,18 +1,12 @@
 ﻿using DataAccessLayer.DB;
 using DataAccessLayer.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories;
 
 public class UnitOfWork(AppDbContext dbContext,
                         IAnswerInterface answerInterface,
                         ICommentInterface commentInterface,
-                        IQuestionTaginterface questionTaginterface,
+                        IQuestionTagInterface questionTagInterface,
                         IQuestionInterface questionInterface,
                         ISavedInterface savedInterface,
                         IUserInterface userInterface)
@@ -22,7 +16,7 @@ public class UnitOfWork(AppDbContext dbContext,
 
     public ICommentInterface CommentInterface { get; } = commentInterface;
 
-    public IQuestionTaginterface QuestionTagInterface { get; } = questionTaginterface;
+    public IQuestionTagInterface QuestionTagInterface { get; } = questionTagInterface;
 
     public IQuestionInterface QuestionInterface { get; } = questionInterface;
 
