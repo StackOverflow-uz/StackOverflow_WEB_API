@@ -1,8 +1,8 @@
 using AutoMapper;
 using DataAccessLayer.DB;
-using DataAccessLayer.Entities;
+using DataAccessLayer.Interfaces;
+using DataAccessLayer.Repositories;
 using DTOs;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,11 +16,17 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("LocalSqlServer")));
-
 //builder.Services.AddIdentity<User, IdentityRole>()
 //    .AddEntityFrameworkStores<AppDbContext>()
 //    .AddDefaultTokenProviders();
-
+builder.Services.AddTransient<IAnswerInterface, AnswerRepository>();
+builder.Services.AddTransient<ICommentInterface, CommentRepository>();
+builder.Services.AddTransient<IQuestionInterface, QuestionRepository>();
+builder.Services.AddTransient<IQuestionTagInterface, QuestionTagRepository>();
+builder.Services.AddTransient<ISavedInterface, SavedRepository>();
+builder.Services.AddTransient<ITagInterface, TagRepository>();
+builder.Services.AddTransient<IUserInterface, UserRepository>();
+builder.Services.AddTransient<IUnitOfWorkInterface, UnitOfWork>();
 
 
 var mapperConfig = new MapperConfiguration(mc =>
