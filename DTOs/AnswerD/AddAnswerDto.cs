@@ -1,8 +1,6 @@
-﻿using DTOs.BaseD;
+﻿namespace DTOs.AnswerD;
 
-namespace DTOs.AnswerD;
-
-public class AddAnswerDto : BaseDto
+public class AddAnswerDto
 {
     public string Body { get; set; } = string.Empty;
 }

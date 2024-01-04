@@ -4,6 +4,6 @@ namespace DTOs.AnswerD;
 
 public class UpdateAnswerDto : BaseDto
 {
-    public Guid UserId { get; set; }
+    public string UserId { get; set; } = string.Empty;
     public string Body { get; set; } = string.Empty;
 }

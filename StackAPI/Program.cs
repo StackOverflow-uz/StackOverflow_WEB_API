@@ -3,6 +3,8 @@ using DataAccessLayer.DB;
 using DataAccessLayer.Interfaces;
 using DataAccessLayer.Repositories;
 using DTOs;
+using LogicLayer.Interfaces;
+using LogicLayer.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-#region Set DBContext
+#region DBContext 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("LocalSqlServer")));
 //builder.Services.AddIdentity<User, IdentityRole>()
@@ -19,7 +21,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 //    .AddDefaultTokenProviders();
 #endregion
 
-#region Repositories 
+#region Repositories and Services
 builder.Services.AddTransient<IAnswerInterface, AnswerRepository>();
 builder.Services.AddTransient<ICommentInterface, CommentRepository>();
 builder.Services.AddTransient<IQuestionInterface, QuestionRepository>();
@@ -28,6 +30,14 @@ builder.Services.AddTransient<ISavedInterface, SavedRepository>();
 builder.Services.AddTransient<ITagInterface, TagRepository>();
 builder.Services.AddTransient<IUserInterface, UserRepository>();
 builder.Services.AddTransient<IUnitOfWorkInterface, UnitOfWork>();
+
+builder.Services.AddTransient<IAnswerService, AnswerService>();
+builder.Services.AddTransient<ICommentService, CommentService>();
+builder.Services.AddTransient<IQuestionService, QuestionService>();
+//builder.Services.AddTransient<IQuestionTagService, QuestionTagService>();
+builder.Services.AddTransient<ISavedService, SavedService>();
+builder.Services.AddTransient<ITagService, TagService>();
+builder.Services.AddTransient<IUserService, UserService>();
 #endregion
 
 #region Mapper 

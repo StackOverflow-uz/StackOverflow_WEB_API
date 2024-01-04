@@ -23,12 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataAccessLayer.csproj" />
     <ProjectReference Include="..\DTOs\DTOs.csproj" />
+    <ProjectReference Include="..\LogicLayer\LogicLayer.csproj" />
   </ItemGroup>
 
 </Project>
