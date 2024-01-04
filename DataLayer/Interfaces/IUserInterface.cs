@@ -6,7 +6,7 @@ public interface IUserInterface
 {
     Task<IEnumerable<User>> GetAllAsync();
 
-    Task<User?> GetByIdAsync(Guid id);
+    Task<User?> GetByIdAsync(string id);
 
     Task AddAsync(User user);
 

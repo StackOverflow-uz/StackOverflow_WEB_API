@@ -9,7 +9,8 @@ public class UnitOfWork(AppDbContext dbContext,
                         IQuestionTagInterface questionTagInterface,
                         IQuestionInterface questionInterface,
                         ISavedInterface savedInterface,
-                        IUserInterface userInterface)
+                        IUserInterface userInterface,
+                        ITagInterface tagInterface) : IUnitOfWorkInterface
 {
     private readonly AppDbContext _dbContext = dbContext;
     public IAnswerInterface AnswerInterface { get; } = answerInterface;
@@ -23,6 +24,8 @@ public class UnitOfWork(AppDbContext dbContext,
     public ISavedInterface SavedInterface { get; } = savedInterface;
 
     public IUserInterface UserInterface { get; } = userInterface;
+
+    public ITagInterface TagInterface { get; } = tagInterface;
 
     public void Dispose()
         => GC.SuppressFinalize(this);

@@ -30,7 +30,7 @@ public class UserService(IUnitOfWorkInterface unitOfWork,
         await _unitOfWork.SaveAsync();
     }
 
-    public async Task Delete(Guid id)
+    public async Task Delete(string id)
     {
         var user = await _unitOfWork.UserInterface.GetByIdAsync(id);
         if (user == null)
@@ -60,7 +60,7 @@ public class UserService(IUnitOfWorkInterface unitOfWork,
         return pagedList.ToPagedList(dtos, pageSize, pageNumber);
     }
 
-    public async Task<UserDto> GetById(Guid id)
+    public async Task<UserDto> GetById(string id)
     {
         var user = await _unitOfWork.UserInterface.GetByIdAsync(id);
 

@@ -9,6 +9,6 @@ public class AddCommentDto
     public Guid UserId { get; set; }
     public bool IsReply { get; set; }
     public int RepliedCommentId { get; set; }
-    public virtual User UserComment { get; set; }
-    public virtual Question Question { get; set; }
+    public virtual User? UserComment { get; set; }
+    public virtual Question? Question { get; set; }
 }

@@ -17,13 +17,6 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //Questionstags
-        modelBuilder.Entity<Question>()
-        .HasMany(e => e.QuestionTags)//
-        .WithOne(e => e.Question)
-        .HasForeignKey(e => e.QuestionId)
-        .IsRequired(false);
-            
         modelBuilder.Entity<Tag>()
         .HasMany(e => e.QuestionTags)
         .WithOne(e => e.Tag)
@@ -68,6 +61,13 @@ public class AppDbContext : DbContext
         .HasForeignKey(e => e.AnswerId)
         .IsRequired(false);
 
+        //Questionstags
+        modelBuilder.Entity<Question>()
+        .HasMany(e => e.QuestionTags)//
+        .WithOne(e => e.Question)
+        .HasForeignKey(e => e.QuestionId)
+        .IsRequired(false);
+
         //Question
         modelBuilder.Entity<Question>()
         .HasMany(e => e.Saves)
@@ -81,13 +81,12 @@ public class AppDbContext : DbContext
         .HasForeignKey(e => e.QuestionId)
         .IsRequired(false);
 
-        /*
         modelBuilder.Entity<Comment>()
         .HasMany(e => e.RepliComments)
         .WithOne(e => e)
         .HasForeignKey(e => e.RepliedCommentId)
         .IsRequired(false);
-        */
+
         base.OnModelCreating(modelBuilder);
     }
 }
