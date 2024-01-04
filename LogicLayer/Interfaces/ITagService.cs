@@ -10,5 +10,5 @@ public interface ITagService
     Task<TagDto> GetById(int id);
     Task Add(AddTagDto addTagDto);
     Task Delete(int id);
-    Task Update(UpdateTag updateTagDto);
+    Task Update(UpdateTagDto updateTagDto);
 }

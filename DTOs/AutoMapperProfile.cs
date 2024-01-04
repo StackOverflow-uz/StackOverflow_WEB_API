@@ -41,7 +41,7 @@ public class AutoMapperProfile : Profile
 
         CreateMap<Tag, TagDto>();
         CreateMap<AddTagDto, Tag>();
-        CreateMap<UpdateTag, Tag>();
+        CreateMap<UpdateTagDto, Tag>();
 
         CreateMap<User, UserDto>();
         CreateMap<AddUserDto, User>();

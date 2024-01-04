@@ -70,7 +70,7 @@ public class TagService(IUnitOfWorkInterface unitOfWork,
         return _mapper.Map<TagDto>(tag);
     }
 
-    public async Task Update(UpdateTag updateTagDto)
+    public async Task Update(UpdateTagDto updateTagDto)
     {
         if (updateTagDto == null)
         {

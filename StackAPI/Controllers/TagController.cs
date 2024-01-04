@@ -1,8 +1,6 @@
-﻿using DTOs.AnswerD;
-using DTOs.CommentD;
+﻿using DTOs.TagD;
 using LogicLayer.Extended;
 using LogicLayer.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -10,16 +8,16 @@ namespace StackAPI.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class CommentController(ICommentService commentService) : ControllerBase
+public class TagController(ITagService tagService) : ControllerBase
 {
-    private readonly ICommentService _commentService = commentService;
+    private readonly ITagService _tagService = tagService;
 
     [HttpGet("getall")]
     public async Task<IActionResult> Get()
     {
         try
         {
-            var categories = await _commentService.GetAll();
+            var categories = await _tagService.GetAll();
             var json = JsonConvert.SerializeObject(categories,
                 new JsonSerializerSettings()
                 {
@@ -37,7 +35,7 @@ public class CommentController(ICommentService commentService) : ControllerBase
     {
         try
         {
-            var categories = await _commentService.GetAllPaged(pageSize, pageNumber);
+            var categories = await _tagService.GetAllPaged(pageSize, pageNumber);
             return Ok(categories);
         }
         catch (Exception ex)
@@ -50,7 +48,7 @@ public class CommentController(ICommentService commentService) : ControllerBase
     {
         try
         {
-            var category = await _commentService.GetById(id);
+            var category = await _tagService.GetById(id);
             return Ok(category);
         }
         catch (ArgumentNullException ex)
@@ -63,11 +61,11 @@ public class CommentController(ICommentService commentService) : ControllerBase
         }
     }
     [HttpPost]
-    public async Task<IActionResult> Post(AddCommentDto dto)
+    public async Task<IActionResult> Post(AddTagDto dto)
     {
         try
         {
-            await _commentService.Add(dto);
+            await _tagService.Add(dto);
             return Ok();
         }
         catch (ArgumentNullException ex)
@@ -88,11 +86,11 @@ public class CommentController(ICommentService commentService) : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> Put(UpdateCommentDto dto)
+    public async Task<IActionResult> Put(UpdateTagDto dto)
     {
         try
         {
-            await _commentService.Update(dto);
+            await _tagService.Update(dto);
             return Ok();
         }
         catch (ArgumentNullException ex)
@@ -113,7 +111,7 @@ public class CommentController(ICommentService commentService) : ControllerBase
     {
         try
         {
-            await _commentService.Delete(id);
+            await _tagService.Delete(id);
             return Ok();
         }
         catch (ArgumentNullException ex)
