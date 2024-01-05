@@ -12,7 +12,7 @@ public class SavedDto : BaseDto
 {
     public int QuestionId { get; set; }
     public int AnswerId { get; set; }
-    public Guid UserId { get; set; }
+    public string UserId { get; set; } = string.Empty;
     public virtual User? User { get; set; }
     public virtual Question? Question { get; set; }
     public virtual Answer? Answer { get; set; }
