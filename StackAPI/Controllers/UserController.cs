@@ -20,7 +20,7 @@ public class UserController(IUserService userService) : ControllerBase
         try
         {
             var categories = await _userService.GetAll();
-            var json = JsonConvert.SerializeObject(categories,
+            var json = JsonConvert.SerializeObject(categories, Formatting.Indented,
                 new JsonSerializerSettings()
                 {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore,

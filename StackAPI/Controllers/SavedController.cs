@@ -20,7 +20,7 @@ public class SavedController(ISavedService savedService) : ControllerBase
         try
         {
             var categories = await _savedService.GetAll();
-            var json = JsonConvert.SerializeObject(categories,
+            var json = JsonConvert.SerializeObject(categories, Formatting.Indented,
                 new JsonSerializerSettings()
                 {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore,

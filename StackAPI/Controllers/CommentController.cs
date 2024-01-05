@@ -20,11 +20,11 @@ public class CommentController(ICommentService commentService) : ControllerBase
         try
         {
             var categories = await _commentService.GetAll();
-            var json = JsonConvert.SerializeObject(categories,
-                new JsonSerializerSettings()
-                {
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-                });
+            var json = JsonConvert.SerializeObject(categories, Formatting.Indented,
+            new JsonSerializerSettings()
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+            });
             return Ok(json);
         }
         catch (Exception ex)

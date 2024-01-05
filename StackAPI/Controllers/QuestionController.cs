@@ -18,7 +18,7 @@ public class QuestionController(IQuestionService questionService) : ControllerBa
         try
         {
             var categories = await _questionService.GetAll();
-            var json = JsonConvert.SerializeObject(categories,
+            var json = JsonConvert.SerializeObject(categories, Formatting.Indented,
                 new JsonSerializerSettings()
                 {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore,

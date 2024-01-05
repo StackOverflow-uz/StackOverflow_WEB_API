@@ -17,7 +17,7 @@ public class AnswerController(IAnswerService answerService) : ControllerBase
         try
         {
             var categories = await _answerService.GetAll();
-            var json = JsonConvert.SerializeObject(categories,
+            var json = JsonConvert.SerializeObject(categories, Formatting.Indented,
                 new JsonSerializerSettings()
                 {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
