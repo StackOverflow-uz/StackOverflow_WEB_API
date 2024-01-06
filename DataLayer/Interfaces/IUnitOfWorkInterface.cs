@@ -2,7 +2,6 @@
 
 public interface IUnitOfWorkInterface : IDisposable
 {
-    IUserInterface UserInterface { get; }
     IAnswerInterface AnswerInterface { get; }
     ICommentInterface CommentInterface { get; }
     IQuestionInterface QuestionInterface { get; }

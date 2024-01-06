@@ -9,7 +9,6 @@ public class UnitOfWork(AppDbContext dbContext,
                         IQuestionTagInterface questionTagInterface,
                         IQuestionInterface questionInterface,
                         ISavedInterface savedInterface,
-                        IUserInterface userInterface,
                         ITagInterface tagInterface) : IUnitOfWorkInterface
 {
     private readonly AppDbContext _dbContext = dbContext;
@@ -22,8 +21,6 @@ public class UnitOfWork(AppDbContext dbContext,
     public IQuestionInterface QuestionInterface { get; } = questionInterface;
 
     public ISavedInterface SavedInterface { get; } = savedInterface;
-
-    public IUserInterface UserInterface { get; } = userInterface;
 
     public ITagInterface TagInterface { get; } = tagInterface;
 

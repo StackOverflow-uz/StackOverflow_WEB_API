@@ -4,83 +4,96 @@ using DataAccessLayer.Interfaces;
 using DTOs.UserD;
 using LogicLayer.Extended;
 using LogicLayer.Interfaces;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace LogicLayer.Services;
 
-public class UserService(IUnitOfWorkInterface unitOfWork,
-                         IMapper mapper) : IUserService
+public class UserService(UserManager<User> userManager,
+                         IConfiguration configuration) : IUserService
 {
-    private readonly IUnitOfWorkInterface _unitOfWork = unitOfWork;
-    private readonly IMapper _mapper = mapper;
+    private readonly UserManager<User> _userManager = userManager;
+    private readonly IConfiguration _configuration = configuration;
 
-    public async Task Add(AddUserDto addUserDto)
+    public async Task RegisterAsync(RegisterUserDto dto)
     {
-        if (addUserDto == null)
-            throw new ArgumentNullException("User null bo'lib qoldi!");
-        
-        var users = await _unitOfWork.UserInterface.GetAllAsync();
-        var user = _mapper.Map<User>(addUserDto);
-        if (!user.IsValid())
-            throw new StackException("Invalid User"); 
+        if (dto == null)
+        {
+            throw new ArgumentNullException(nameof(dto));
+        }
 
-        if (user.IsExist(users))
-            throw new StackException($"{user} uje bor!");
-        
-        await _unitOfWork.UserInterface.AddAsync(user);
-        await _unitOfWork.SaveAsync();
+        var user = (User)dto;
+        var result = await _userManager.CreateAsync(user, dto.Password);
+        if (!result.Succeeded)
+        {
+            throw new CustomException("User creation failed! Check user details and try again.");
+        }
+
+        await _userManager.AddToRoleAsync(user, "User");
     }
 
-    public async Task Delete(string id)
+    public async Task<LoginResultDto> LoginAsync(LoginUserDto dto)
     {
-        var user = await _unitOfWork.UserInterface.GetByIdAsync(id);
+        if (dto == null)
+        {
+            throw new ArgumentNullException(nameof(dto));
+        }
+
+        var user = await _userManager.FindByNameAsync(dto.PhoneNumber);
         if (user == null)
         {
-            throw new ArgumentNullException("Bunday User mavjud emas");
+            throw new CustomException("User not found! Check user details and try again.");
         }
-        await _unitOfWork.UserInterface.DeleteAsync(user);
-        await _unitOfWork.SaveAsync();
-    }
 
-    public async Task<List<UserDto>> GetAll()
-    {
-        var users = await _unitOfWork.UserInterface.GetAllAsync();
-        return users.Select(c => _mapper.Map<UserDto>(c)).ToList();
-    }
-
-    public async Task<PagedList<UserDto>> GetAllPaged(int pageSize, int pageNumber)
-    {
-        var list = await _unitOfWork.UserInterface.GetAllAsync();
-        var dtos = list.Select(c => _mapper.Map<UserDto>(c))
-                                   .ToList();
-
-        PagedList<UserDto> pagedList = new PagedList<UserDto>(dtos, 
-                                                              dtos.Count(), 
-                                                              pageSize, 
-                                                              pageNumber);
-        return pagedList.ToPagedList(dtos, pageSize, pageNumber);
-    }
-
-    public async Task<UserDto> GetById(string id)
-    {
-        var user = await _unitOfWork.UserInterface.GetByIdAsync(id);
-
-        if (user == null)
+        var result = await _userManager.CheckPasswordAsync(user, dto.Password);
+        if (!result)
         {
-            throw new ArgumentNullException("Bunday User mavjud emas");
+            throw new CustomException("Password is incorrect!");
         }
-        return _mapper.Map<UserDto>(user);
+
+        var roles = await _userManager.GetRolesAsync(user);
+        string token = GenerateToken(user, roles);
+
+        return new LoginResultDto()
+        {
+            PhoneNumber = user.PhoneNumber!,
+            ExpireAt = DateTime.UtcNow.AddDays(1),
+            FullName = user.FullName!,
+            Token = token,
+        };
     }
 
-    public async Task Update(UpdateUserDto updateUserDto)
+    private string GenerateToken(User user, IList<string> roles)
     {
-        var user = await _unitOfWork.UserInterface.GetByIdAsync(updateUserDto.Id);
-        var updateUser = _mapper.Map<User>(user);
-        if (updateUserDto == null)
-            throw new ArgumentNullException("UserDto is null here!");
-        if (user == null)
-            throw new ArgumentNullException("User is null here!");
+        var issuer = _configuration["JWT:Issuer"];
+        var audience = _configuration["JWT:Audience"];
+        var key = Encoding.ASCII.GetBytes(_configuration["JWT:SecretKey"]!);
+        var tokenHandler = new JwtSecurityTokenHandler();
 
-        await _unitOfWork.UserInterface.UpdateAsync(updateUser);
-        await _unitOfWork.SaveAsync();
+        var tokenDescriptor = new SecurityTokenDescriptor
+        {
+            Subject = new ClaimsIdentity(new Claim[]
+            {
+                new Claim(ClaimTypes.GivenName, user.FullName!),
+                new Claim(ClaimTypes.MobilePhone, user.PhoneNumber!),
+                new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString())
+            }),
+            Issuer = issuer,
+            Audience = audience,
+            Expires = DateTime.UtcNow.AddDays(1),
+            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+        };
+
+        foreach (var role in roles)
+        {
+            tokenDescriptor.Subject.AddClaim(new Claim(ClaimTypes.Role, role));
+        }
+
+        var token = tokenHandler.CreateToken(tokenDescriptor);
+        return tokenHandler.WriteToken(token);
     }
 }

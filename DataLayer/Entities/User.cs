@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataAccessLayer.Entities;
 
 public class User : IdentityUser
 {
+    [MinLength(5), MaxLength(100)]
+    public string? FullName { get; set; }
     public string Location { get; set; } = string.Empty;
     public string AvatarUrl { get; set; } = string.Empty;
     public string About { get; set; } = string.Empty;
