@@ -10,17 +10,14 @@ namespace StackAPI.Controllers;
 [ApiController]
 public class UserController(IUserService userService) : ControllerBase
 {
-    public IUserService _userService = userService;
-    [HttpPost("[action]")]
-    [AllowAnonymous]
-    public async Task<IActionResult> Register(RegisterUserDto dto)
-    {
-        var result = await _userService.RegisterUserAsync(dto, "User");
-        if (result.IsSuccesed)
-        {
-            return Ok("User Created!");
-        }
-
-        return BadRequest(result.ErrorMessage);
-    }
 }
+    //public async Task<IActionResult> Register(RegisterUserDto dto)
+    //{
+    //    var result = await _userService.RegisterUserAsync(dto, "User");
+    //    if (result.IsSuccesed)
+    //    {
+    //        return Ok("User Created!");
+    //    }
+
+    //    return BadRequest(result.ErrorMessage);
+    //}

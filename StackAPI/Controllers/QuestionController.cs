@@ -1,9 +1,6 @@
-﻿using DTOs.AnswerD;
-using DTOs.QuestionD;
+﻿using DTOs.QuestionD;
 using LogicLayer.Extended;
 using LogicLayer.Interfaces;
-using LogicLayer.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -11,16 +8,17 @@ namespace StackAPI.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class QuestionController(IQuestionService answerService) : ControllerBase
+public class QuestionController(IQuestionService questionService) : ControllerBase
 {
-    private readonly IQuestionService _answerService = answerService;
+    private readonly IQuestionService _questionService = questionService;
+
     [HttpGet("getall")]
     public async Task<IActionResult> Get()
     {
         try
         {
-            var categories = await _answerService.GetAll();
-            var json = JsonConvert.SerializeObject(categories,
+            var categories = await _questionService.GetAll();
+            var json = JsonConvert.SerializeObject(categories, Formatting.Indented,
                 new JsonSerializerSettings()
                 {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
@@ -37,7 +35,7 @@ public class QuestionController(IQuestionService answerService) : ControllerBase
     {
         try
         {
-            var categories = await _answerService.GetAllPaged(pageSize, pageNumber);
+            var categories = await _questionService.GetAllPaged(pageSize, pageNumber);
             return Ok(categories);
         }
         catch (Exception ex)
@@ -50,7 +48,7 @@ public class QuestionController(IQuestionService answerService) : ControllerBase
     {
         try
         {
-            var category = await _answerService.GetById(id);
+            var category = await _questionService.GetById(id);
             return Ok(category);
         }
         catch (ArgumentNullException ex)
@@ -67,7 +65,7 @@ public class QuestionController(IQuestionService answerService) : ControllerBase
     {
         try
         {
-            await _answerService.Add(dto);
+            await _questionService.Add(dto);
             return Ok();
         }
         catch (ArgumentNullException ex)
@@ -92,7 +90,7 @@ public class QuestionController(IQuestionService answerService) : ControllerBase
     {
         try
         {
-            await _answerService.Update(dto);
+            await _questionService.Update(dto);
             return Ok();
         }
         catch (ArgumentNullException ex)
@@ -113,7 +111,7 @@ public class QuestionController(IQuestionService answerService) : ControllerBase
     {
         try
         {
-            await _answerService.Delete(id);
+            await _questionService.Delete(id);
             return Ok();
         }
         catch (ArgumentNullException ex)

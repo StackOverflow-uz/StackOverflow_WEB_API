@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DataAccessLayer.DB;
+using DataAccessLayer.Entities;
+using DataAccessLayer.Interfaces;
 
 namespace DataAccessLayer.Repositories;
 
-public class QuestionRepository
+public class QuestionRepository : Repository<Question>, IQuestionInterface
 {
+    public QuestionRepository(AppDbContext dbContext) : base(dbContext)
+    {
+    }
 }
