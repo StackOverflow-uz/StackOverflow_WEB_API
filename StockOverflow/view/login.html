@@ -1,0 +1,83 @@
+<!-- file path : view/login.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../assets/css/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="navbar-container">
+        <div class="logo"><a href="./index.html">Stack Overflow</a></div>
+        <div class="nav-links">
+          <a href="#">About</a>
+          <a href="#">Product</a>
+          <a href="#">For Team</a>
+        </div>
+        <div class="search-container">
+          <div class="search-container">
+            <input type="text" placeholder="Search..." class="search-bar" />
+          </div>
+        </div>
+        <div class="auth-container">
+          <a class="navlogin-button" href="./login.html">Login</a>
+          <a class="navsignup-button" href="./register.html">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="head">
+        <div class="icon-container">
+          <a href="#" class="btn-ggl">
+            <i class="fa fa-google fi-google" aria-hidden="true"></i>Google
+          </a>
+          <a href="#" class="btn-gh">
+            <i class="fa fa-github fi-github" aria-hidden="true"></i>GitHub
+          </a>
+          <a href="#" class="btn-fb">
+            <i class="fa fa-facebook fi-facebook" aria-hidden="true"></i
+            >Facebook
+          </a>
+        </div>
+        <div class="or-container">
+          <form action="login.php" method="post">
+            <div class="input-container">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                name="email"
+                id="email"
+                required
+              />
+            </div>
+            <div class="input-container">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                placeholder="Enter your password"
+                name="password"
+                id="password"
+                required
+              />
+            </div>
+
+            <button type="submit" class="login-button">Login</button>
+
+            <div class="link-container">
+              <a href="#">Forgot password?</a>
+            </div>
+            <div class="link-container">
+              <p>Dont have a account? <a href="./register.html">SignUp</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

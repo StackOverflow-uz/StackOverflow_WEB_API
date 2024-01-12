@@ -1,0 +1,179 @@
+/* file path : assets/css/login.css */
+body {
+    background-color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid orange; 
+}
+.navbar-container .logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+}
+.navbar-container .nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+}
+.navbar-container .nav-links a {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 10px;
+}
+.navbar-container .search-container {
+    width: 400px;
+}
+.navbar-container .search-container .search-bar {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.auth-container a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* this is a green color, you can change it to whatever you like */
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-container a:hover {
+    background-color: #45a049; /* this is a darker green color for hover effect, you can change it to whatever you like */
+}
+
+.auth-container .navsignup-button {
+    background-color: #007BFF; /* this is a blue color, you can change it to whatever you like */
+}
+
+.auth-container .signup-button:hover {
+    background-color: #0069D9; /* this is a darker blue color for hover effect, you can change it to whatever you like */
+}
+.head{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .btn-ggl, .btn-gh, .btn-fb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px; /* adjust this value to make the buttons wider or narrower */
+    background-color: #db4437;
+    color: white;
+    padding: 10px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .btn-gh {
+    background-color: #333;
+  }
+  
+  .btn-fb {
+    background-color: #3b5998;
+  }
+  
+  .fa {
+    margin-right: 5px;
+  }
+.or-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* adjust these values to change the appearance of the shadow */
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 12px;
+}
+  .input-container {
+    width: 100%;
+    max-width: 400px; /* adjust this value to change the maximum width of the input */
+    padding: 10px 0 10px 0;
+    box-sizing: border-box;
+  }
+  
+  #password {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  #email {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50; /* this is a green color, you can change it to whatever you like */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .login-button:hover {
+    background-color: #45a049; /* this is a darker green color for hover effect, you can change it to whatever you like */
+  }
+  
+  .link-container {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .link-container a {
+    color: #4CAF50; /* this is a green color, you can change it to whatever you like */
+    text-decoration: none;
+  }
+  
+  .link-container a:hover {
+    text-decoration: underline;
+  }
