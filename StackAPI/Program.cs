@@ -1,3 +1,4 @@
+using Asp.Versioning;
 using AutoMapper;
 using DataAccessLayer.DB;
 using DataAccessLayer.Entities;
@@ -137,6 +138,16 @@ builder.Services.AddAuthentication(options =>
     });
 #endregion
 
+#region API Versioning
+builder.Services.AddApiVersioning(options =>
+{
+    options.ReportApiVersions = true;
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.ApiVersionReader = new UrlSegmentApiVersionReader();
+});
+#endregion
+
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
@@ -147,7 +158,9 @@ app.UseHttpsRedirection();
 app.UseCors(CORS_POLICY);
 app.UseAuthentication();
 app.UseAuthorization();
-
-app.MapControllers();
+var versionSet = app.NewApiVersionSet()
+                            .HasApiVersion(new ApiVersion(1, 0))
+                            .Build();
+app.MapControllers().WithApiVersionSet(versionSet);
 app.SeedRolesToDatabase();
 app.Run();

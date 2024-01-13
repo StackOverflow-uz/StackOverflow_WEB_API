@@ -23,13 +23,13 @@ public class CommentService(IUnitOfWorkInterface unitOfWork,
         var comment = _mapper.Map<Comment>(addCommentDto);
         if (!comment.IsValid())
         {
-            throw new CustomException("Invalid Comment");
+            throw new StackException("Invalid Comment");
         }
 
         var comments = await _unitOfWork.CommentInterface.GetAllAsync();
         if (comment.IsExist(comments))
         {
-            throw new CustomException($"{comment.Text} uje bor!");
+            throw new StackException($"{comment.Text} uje bor!");
         }
 
         await _unitOfWork.CommentInterface.AddAsync(comment);

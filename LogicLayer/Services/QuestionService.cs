@@ -22,13 +22,13 @@ public class QuestionService(IUnitOfWorkInterface unitOfWork,
         var question = _mapper.Map<Question>(addQuestionDto);
         if (!question.IsValid())
         {
-            throw new CustomException("Invalid Question");
+            throw new StackException("Invalid Question");
         }
 
         var questions = await _unitOfWork.QuestionInterface.GetAllAsync();
         if (question.IsExist(questions))
         {
-            throw new CustomException($"{question.Body} uje bor!");
+            throw new StackException($"{question.Body} uje bor!");
         }
 
         await _unitOfWork.QuestionInterface.AddAsync(question);

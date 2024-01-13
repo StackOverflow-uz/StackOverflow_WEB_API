@@ -1,0 +1,168 @@
+[33mcommit 72beaaafc1ac97d467bfe0920266effbff7f84c2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mNurali[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/Nurali[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Sat Jan 6 15:53:32 2024 +0500
+
+    Register 1-version
+
+[33mcommit bc6d1fbe618c53a5c58ecd5e91339c017529809f[m
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Fri Jan 5 11:24:13 2024 +0500
+
+    Guid Id lar String ga o'tkazildi
+
+[33mcommit 3a354d1db0b6dc53ad4619903e0bb1554e974ad7[m
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Fri Jan 5 11:21:31 2024 +0500
+
+    updated with controllers
+
+[33mcommit 0a087e8b7a8ebcf10682149d3647c06bdbb45120[m
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Thu Jan 4 20:47:11 2024 +0500
+
+    Controlleri deyarli bo'ldi
+
+[33mcommit 9ab51c1961f036014a16d9fe01d614cecac199fc[m
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Thu Jan 4 15:07:04 2024 +0500
+
+    Controllerni boshladik
+
+[33mcommit 1ef6cd5051100b610afb216be44a03053499891f[m
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Thu Jan 4 11:29:34 2024 +0500
+
+    service lari tugadi
+
+[33mcommit 508e521e03cde6b6a1ebce90b85e61a398296884[m
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Tue Jan 2 14:34:23 2024 +0500
+
+    unit of work da xatolik
+
+[33mcommit 7adc37f1b5e20ddb8513eee4ad17efd3a843c154[m
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Sun Dec 31 23:28:30 2023 +0500
+
+    Menimcha service lar hammasi bo'ldi
+
+[33mcommit 11011f4aca15bd21ff6049fb823cf257c6b3db8f[m
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Thu Dec 28 08:50:03 2023 +0500
+
+    services
+
+[33mcommit c74917103c4d7a5daeb682a088416516c28759cb[m
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Thu Dec 28 06:18:11 2023 +0500
+
+    tag user comment validators added
+
+[33mcommit 83b50e1ea5a62231ab96a1171f2cea2d922c287d[m
+Merge: bfc40ff ba380da
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Wed Dec 27 19:24:10 2023 +0500
+
+    marjed nimadur bo'ldi
+
+[33mcommit ba380da4bf0cfb12f107e7c35a72924737b6d89f[m[33m ([m[1;31morigin/wklejkbvnfjnjev[m[33m, [m[1;32mwklejkbvnfjnjev[m[33m)[m
+Author: doshik <eurmonboyev@gmail.com>
+Date:   Tue Dec 26 08:47:51 2023 +0500
+
+    wewrfwrfwfwrfwrfwrf
+
+[33mcommit a1c629524bdd73f11a0a713f88e0c9a0d66002c2[m
+Author: doshik <eurmonboyev@gmail.com>
+Date:   Mon Dec 25 10:12:40 2023 +0500
+
+    ifioggofglgkvbkvkblvkgkvll
+
+[33mcommit bfc40ff64900f9cf480b4dba4d2d17f3dfb8532c[m
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Mon Dec 25 09:49:06 2023 +0500
+
+    nima
+
+[33mcommit 2f22d6898a6ebc1f3e20dc251d6070ffb0a19a93[m
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Mon Dec 25 09:39:23 2023 +0500
+
+    navbatdagi commit
+
+[33mcommit 06f20c36e3c4b6b9ae263b53d51cbfb979371808[m
+Author: doshik <eurmonboyev@gmail.com>
+Date:   Mon Dec 25 09:30:15 2023 +0500
+
+    rfreeecdfvdrfv
+
+[33mcommit bebc0ca76231b66e9507edfb758eb3983965c336[m
+Author: doshik <eurmonboyev@gmail.com>
+Date:   Mon Dec 25 09:27:53 2023 +0500
+
+    rererererererrerererere
+
+[33mcommit 43b93656ca1296dc5cdb53fef429da729ced07b0[m
+Author: doshik <eurmonboyev@gmail.com>
+Date:   Mon Dec 25 09:22:06 2023 +0500
+
+    gbfgbfgbfgbfgbfgbfgbfgb
+
+[33mcommit 41044d5a237f695443c12cc82be19b76e4e9abe1[m
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Sat Dec 23 18:01:57 2023 +0500
+
+    migration muammosi
+
+[33mcommit 397f2ee3e4032e14bed0ad7762de4e4f3d2e9034[m
+Author: doshik <eurmonboyev@gmail.com>
+Date:   Fri Dec 22 10:49:28 2023 +0500
+
+    commit_all
+
+[33mcommit 05caa83857b37ee2bb7904de1a2f59b8dcbd5266[m
+Author: doshik <eurmonboyev@gmail.com>
+Date:   Thu Dec 21 21:33:28 2023 +0500
+
+    yana yangi obnovleniye
+
+[33mcommit a713fab73ca46626aab539039b035270f63339c6[m
+Author: doshik <eurmonboyev@gmail.com>
+Date:   Thu Dec 21 21:04:29 2023 +0500
+
+    dtolarni qilib keling Nurali aka
+
+[33mcommit 0a4d55b4906476c47e77040d420bb10bcedc8b6f[m
+Author: doshik <eurmonboyev@gmail.com>
+Date:   Thu Dec 21 10:53:48 2023 +0500
+
+    аукаукаукаукаука
+
+[33mcommit 61157be05fcea99229e580d908139ae1b50359c1[m
+Author: doshik <eurmonboyev@gmail.com>
+Date:   Thu Dec 21 09:52:50 2023 +0500
+
+    'nimadur'
+
+[33mcommit 99df77ca1fc463c8391384f75838a07c0c00ad0a[m
+Author: doshik <eurmonboyev@gmail.com>
+Date:   Tue Dec 19 21:08:48 2023 +0500
+
+    дбни янгиси
+
+[33mcommit 20398fbf4b1213ab9159882753f2cf08ddf4211c[m
+Author: doshik <eurmonboyev@gmail.com>
+Date:   Tue Dec 19 20:06:17 2023 +0500
+
+    дбси билан
+
+[33mcommit 39d878637c0edffbe78ee5c99abbcc86ec566cb0[m
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Tue Dec 19 18:44:50 2023 +0500
+
+    Layers and Entities added
+
+[33mcommit a800dfece14aa33f90d9bc5425a915b2f38bcfff[m
+Author: Nurali <98206848+NuraliYuldashov@users.noreply.github.com>
+Date:   Mon Dec 18 12:58:58 2023 +0500
+
+    Initial commit

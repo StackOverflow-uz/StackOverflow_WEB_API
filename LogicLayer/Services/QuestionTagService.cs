@@ -24,7 +24,7 @@ public class QuestionTagTagService(IUnitOfWorkInterface unitOfWork,
         var questionTags = await _unitOfWork.QuestionTagInterface.GetAllAsync();
         if (questionTags.Any(c => c.TagId == questionTag.TagId && c.Id != questionTag.Id))
         {
-            throw new CustomException($"{questionTag.Tag} uje bor!");
+            throw new StackException($"{questionTag.Tag} uje bor!");
         }
 
         await _unitOfWork.QuestionTagInterface.AddAsync(questionTag);
@@ -82,7 +82,7 @@ public class QuestionTagTagService(IUnitOfWorkInterface unitOfWork,
 
         if (questionTags.Any(c => c.TagId == questionTag.TagId && c.Id != questionTag.Id))
         {
-            throw new CustomException($"{questionTag.Tag} uje bor!");
+            throw new StackException($"{questionTag.Tag} uje bor!");
         }
         await _unitOfWork.QuestionTagInterface.UpdateAsync(updateQuestionTag);
         await _unitOfWork.SaveAsync();

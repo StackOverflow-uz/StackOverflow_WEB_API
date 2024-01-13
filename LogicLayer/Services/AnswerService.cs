@@ -23,13 +23,13 @@ public class AnswerService(IUnitOfWorkInterface unitOfWork,
         var answer = _mapper.Map<Answer>(addAnswerDto);
         if (!answer.IsValid())
         {
-            throw new CustomException("Invalid Answer");
+            throw new StackException("Invalid Answer");
         }
 
         var answers = await _unitOfWork.AnswerInterface.GetAllAsync();
         if (answer.IsExist(answers))
         {
-            throw new CustomException($"{answer.Body} uje bor!");
+            throw new StackException($"{answer.Body} uje bor!");
         }
 
 		await _unitOfWork.AnswerInterface.AddAsync(answer);
